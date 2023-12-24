@@ -1,9 +1,9 @@
 const express = require('express');
 const Router = express.Router();
-
+const path = require('path');
 Router.get('/add-product', (req, res, next) => {
     // console.log("middleware")
-    res.send('<form method="POST" action="/admin/product"><input type="text" name="text"/><button type="submit">Add product</button></form>')
+    res.sendFile(path.join(__dirname, '../', 'views', 'add-product.html'))
 })
 Router.post('/product', (req, res, next) => {
     console.log(req.body)
